@@ -1,4 +1,3 @@
-import "./App.css";
 import routes from "./routes";
 import { RouterProvider } from "react-router-dom";
 function App() {
