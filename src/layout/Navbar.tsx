@@ -93,8 +93,16 @@ export const Navbar: React.FC = () => {
 };
 
 const Nav = styled.nav`
+  width: fit-content !important;
+  display: flex;
+  align-items: center;
   margin-top: 12px;
   border-bottom: 1px solid #e5e7eb;
+  margin-inline: auto !important;
+  @media (max-width: 600px) {
+    margin-inline: 2rem;
+    align-items: space-between;
+  }
 `;
 
 const Inner = styled.div`
@@ -131,7 +139,7 @@ const ToggleButton = styled.button`
   padding: 6px;
   cursor: pointer;
 
-  @media (min-width: 640px) {
+  @media (min-width: 900px) {
     display: none;
   }
 `;
@@ -151,7 +159,7 @@ const NavLinks = styled.ul<{ open: boolean }>`
   padding: 12px 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 
-  @media (min-width: 640px) {
+  @media (min-width: 900px) {
     position: static;
     display: flex;
     flex-direction: row;
