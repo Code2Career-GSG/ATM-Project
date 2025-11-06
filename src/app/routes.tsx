@@ -9,6 +9,7 @@ import {
   WatchlistPage,
   WithdrawPage,
 } from "../pages";
+import { MainLayout } from "../layout/MainLayout";
 
 const routerConfig = createBrowserRouter([
   {
@@ -17,31 +18,59 @@ const routerConfig = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    Component: DashboardPage,
+    Component: () => (
+      <MainLayout>
+        <DashboardPage />
+      </MainLayout>
+    ),
   },
   {
     path: "/deposit",
-    Component: DepositPage,
+    Component: () => (
+      <MainLayout>
+        <DepositPage />
+      </MainLayout>
+    ),
   },
   {
     path: "/withdraw",
-    Component: WithdrawPage,
+    Component: () => (
+      <MainLayout>
+        <WithdrawPage />
+      </MainLayout>
+    ),
   },
   {
     path: "/history",
-    Component: HistoryPage,
+    Component: () => (
+      <MainLayout>
+        <HistoryPage />
+      </MainLayout>
+    ),
   },
   {
     path: "/watchlist",
-    Component: WatchlistPage,
+    Component: () => (
+      <MainLayout>
+        <WatchlistPage />
+      </MainLayout>
+    ),
   },
   {
     path: "/settings",
-    Component: SettingsPage,
+    Component: () => (
+      <MainLayout>
+        <SettingsPage />
+      </MainLayout>
+    ),
   },
   {
     path: "*",
-    Component: NotFoundPage,
+    Component: () => (
+      <MainLayout>
+        <NotFoundPage />
+      </MainLayout>
+    ),
   },
 ]);
 export default routerConfig;
