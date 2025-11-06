@@ -113,6 +113,7 @@ birthdayPopup: birthdayPopupSlice.reducer,
 appSettings: appSettingsSlice.reducer,
 },
 });
+export type RootState = ReturnType<typeof store.getState>;
 
 export const {
 setUserData,
