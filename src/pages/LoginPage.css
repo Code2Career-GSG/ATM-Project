@@ -1,0 +1,120 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Momo+Trust+Display&family=Oswald:wght@200..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+.login-container {
+  width: 350px;
+  height: 450px;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #ffffff;
+  background-image: url(../assets/background.jpg);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(14, 14, 14, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+body {
+	background: linear-gradient(90deg, #767685, #1a1a1b);		
+}
+
+
+.login-container .title {
+  text-align: center;
+  font-size: 28px;
+  color: #3a393a; 
+  margin-bottom: 25px;
+  font-weight: bold;
+ font-family: 'Momo Trust Display';
+}
+
+
+.login-subtitle {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+   font-family: 'Momo Trust Display';
+}
+
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+	padding: 30px;
+	padding-top: 50px;
+}
+
+
+
+
+
+.login-form input {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: #8a8a8a;
+	padding: 10px;
+	padding-left: 24px;
+	width: 75%;
+    	font-family: Raleway, sans-serif;
+        font-weight: 700;
+        margin-bottom: 40px;
+          transition: all 0.3s ease;
+           border-radius: 18px;
+  font-size: 14px;
+  color: #000000;
+  
+}
+
+.login-form input:active,
+.login-form input:focus,
+.login-form input:hover {
+	outline: none;
+	border-bottom-color: #252528;
+}
+.login-form input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset; 
+  -webkit-text-fill-color: #000; 
+  transition: background-color 5000s ease-in-out; 
+}
+
+
+
+.login-form button {
+  padding: 12px;
+  background: #3c3a3d; 
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+ font-family:" Oswald";
+ margin-left: 60px;
+ width: 150px;
+}
+
+.login-form button:hover {
+  background: #58575a; 
+  box-shadow: 0 5px 15px rgba(32, 31, 33, 0.774);
+}
+
+.login-form button:disabled {
+  background: #a9a9a9;
+  cursor: not-allowed;
+}
+
+
+.error {
+  color: #f44336;
+  font-size: 15px;
+  margin: 10px;
+  text-align: center;
+   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   padding-top: 30px;
+   padding-right: 40px;
+ 
+}
+
+
