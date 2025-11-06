@@ -43,7 +43,7 @@ body {
   flex-direction: column;
   width: 320px;
 	padding: 30px;
-	padding-top: 50px;
+
 }
 
 
@@ -91,7 +91,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
  font-family:" Oswald";
- margin-left: 60px;
+ margin-left: 30px;
  width: 150px;
 }
 
@@ -112,7 +112,7 @@ body {
   margin: 10px;
   text-align: center;
    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-   padding-top: 30px;
+   padding-top: 10px;
    padding-right: 40px;
  
 }

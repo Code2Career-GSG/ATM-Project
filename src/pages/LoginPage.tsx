@@ -2,20 +2,24 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-hot-toast";
 import { useAuth } from "../hooks/useAuth";
 import { useDispatch } from "react-redux";
-import { setUserData } from "../store/store";
+import { setUserData} from "../store/store";
+import type { Transaction } from "../store/store"; 
+
 
 import "./LoginPage.css";
 
 interface User {
-  id: string;
+  id: number;
   user_name: string;
   first_name: string;
   pin: string;
   birthday: string;
+  image: string;
+  balance: number;
+transactions: Transaction[];
 }
 
 export const LoginPage = () =>  {
@@ -62,14 +66,25 @@ const users = await response.json();
         (u:User) => u.user_name.toLowerCase()===username.trim().toLowerCase()&&u.pin===pin.trim()
       );
 
-      if (user) {
+     if (user) {
+  const userData = {
+    id:user.id,
+    firstName: user.first_name,
+    lastName: user.last_name,
+    username: user.user_name,
+    image: user.profile_img,      
+    balance: user.balance,
+    birthday: user.birthday,
+    transactions: user.transactions || [] 
+    
+  };
       
-  dispatch(setUserData(user));    
+  dispatch(setUserData(userData));    
   setLogin(true);     
       
-        toast.success(
+       toast.success(
           ` Welcome back, ${user.first_name || user.user_name}!`,
-          { autoClose: 1600 }
+       
         );
 
         
@@ -80,12 +95,12 @@ const users = await response.json();
       } else {
        
         setError("user name or PIN is incorrect");
-        toast.error( "user name or PIN is incorrect", { autoClose: 2500 });
+        toast.error( "user name or PIN is incorrect");
       }
     } catch (err) {
       console.error(err);
       setError(" We were unable to connect to the API. Please try again later.");
-      toast.error("API connection failed", { autoClose: 2500 });
+       toast.error("API connection failed", );
     } finally {
       setLoading(false);
     }
