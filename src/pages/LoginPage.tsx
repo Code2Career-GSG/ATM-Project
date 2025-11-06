@@ -94,13 +94,12 @@ const users = await response.json();
         }, 700);
       } else {
        
-        setError("user name or PIN is incorrect");
+        
         toast.error( "user name or PIN is incorrect");
       }
     } catch (err) {
       console.error(err);
-      setError(" We were unable to connect to the API. Please try again later.");
-       toast.error("API connection failed", );
+       toast.error(" We were unable to connect to the API. Please try again later." );
     } finally {
       setLoading(false);
     }
