@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeBalance, pushTransaction } from "../store/store";
 import type { RootState } from "../store/store";
-import "../index.css";
+import "../DepositPage.css";
+
 export const DepositPage = () => {
   const dispatch = useDispatch();
 
@@ -38,19 +39,20 @@ export const DepositPage = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Deposit Page</h2>
-      <p>Balance: ${balance}</p>
+  <div className="deposit-container">
+    <h2>Deposit Page</h2>
+    <p>Balance: ${balance}</p>
 
-      <form onSubmit={handleDeposit}>
-        <input
-          type="number"
-          placeholder="Enter amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
-        <button type="submit">Deposit</button>
-      </form>
-    </div>
-  );
+    <form className="deposit-form" onSubmit={handleDeposit}>
+      <input
+        type="number"
+        placeholder="Enter amount"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+      />
+      <button type="submit">Deposit</button>
+    </form>
+  </div>
+);
+
 };
