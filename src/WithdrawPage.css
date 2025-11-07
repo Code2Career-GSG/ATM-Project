@@ -1,0 +1,51 @@
+.withdraw-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.withdraw-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.withdraw-container p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #d9534f; /* أحمر دال على السحب */
+}
+
+.withdraw-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.withdraw-form input[type="number"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.withdraw-form button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #d9534f;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.withdraw-form button:hover {
+  background-color: #c9302c;
+}
