@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useAuth } from "../hooks/useAuth";
+//import { useAuth } from "../hooks/useAuth";
 import { useDispatch } from "react-redux";
-import { setUserData } from "../store/store";
+//import { setUserData } from "../store/store";
 
 import "./LoginPage.css";
 
@@ -26,7 +26,7 @@ export const LoginPage = () =>  {
   const [pin, setPin] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const { setLogin } = useAuth();
+  //const { setLogin } = useAuth();
 const dispatch = useDispatch();
 
    const navigate = useNavigate();
@@ -64,8 +64,8 @@ const users = await response.json();
 
       if (user) {
       
-  dispatch(setUserData(user));    
-  setLogin(true);     
+ // dispatch(setUserData(user));    
+  //setLogin(true);     
       
         toast.success(
           ` Welcome back, ${user.first_name || user.user_name}!`,
