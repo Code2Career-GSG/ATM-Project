@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useUser } from "../hooks/useUser";
 
 export const HistoryPage: React.FC = () => {
-  const { user, resetUser } = useUser();
+  const { user, setUser } = useUser();
   const transactions = useMemo(() => user?.transactions || [], [user]);
 
   const pageSize = 4;
@@ -20,8 +20,8 @@ export const HistoryPage: React.FC = () => {
   );
 
   const handleClear = () => {
-    if (!confirm("Are you sure you want to clear all user data? This action cannot be undone.")) return;
-    resetUser();
+    if (!confirm("Are you sure you want to clear all transaction history? This action cannot be undone.")) return;
+    setUser({ ...user, transactions: [] });
     setPage(1);
   };
   return (
@@ -30,7 +30,7 @@ export const HistoryPage: React.FC = () => {
         <h2>Transaction History</h2>
         <Actions>
           <div>Total: {transactions.length}</div>
-          <button onClick={handleClear}>Reset Account</button>
+          <button onClick={handleClear}>Reset History</button>
         </Actions>
       </Header>
       
