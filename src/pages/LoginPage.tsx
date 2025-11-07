@@ -43,7 +43,8 @@ const dispatch = useDispatch();
 
 
     if (!username.trim() || !pin.trim()) {
-      setError("please enter user name and PIN");
+       toast.error( "please enter user name and PIN", { autoClose: 2500 });
+     
       return;
     }
 
@@ -78,13 +79,13 @@ const users = await response.json();
         }, 700);
       } else {
        
-        setError("user name or PIN is incorrect");
+        
         toast.error( "user name or PIN is incorrect", { autoClose: 2500 });
       }
     } catch (err) {
       console.error(err);
-      setError(" We were unable to connect to the API. Please try again later.");
-      toast.error("API connection failed", { autoClose: 2500 });
+    
+      toast.error(" We were unable to connect to the API. Please try again later.", { autoClose: 2500 });
     } finally {
       setLoading(false);
     }
