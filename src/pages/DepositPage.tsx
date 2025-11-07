@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeBalance, pushTransaction } from "../store/store";
 import type { RootState } from "../store/store";
-
+import "../index.css";
 export const DepositPage = () => {
   const dispatch = useDispatch();
 
-  // 👇 هنا نعرف نوع الـ state
   const balance = useSelector((state: RootState) => state.userData.balance);
   const username = useSelector((state: RootState) => state.userData.username);
 

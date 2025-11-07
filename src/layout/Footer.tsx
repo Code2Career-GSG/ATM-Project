@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const FooterWrap = styled.footer`
   width: auto !important;
-  background: #819ad4ff;
+  background: #2a9d8f;
 `;
 
 const Inner = styled.div`

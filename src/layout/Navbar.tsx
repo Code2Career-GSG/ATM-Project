@@ -23,8 +23,8 @@ export const Navbar: React.FC = () => {
     <Nav>
       <Inner>
         <Brand>
-          <img src="/logo.png" alt="ATM Logo" width="30" height="30" />
-          <NavLink to="/dashboard">ATM</NavLink>
+          <img src="/logo2.png" alt="ATM Logo" width="100" height="100" />
+          {/* <NavLink to="/dashboard">ATM</NavLink> */}
         </Brand>
 
         <ToggleButton
@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
             >
               <path
                 d="M4 6h16M4 12h16M4 18h16"
-                stroke="#7595d8ff"
+                stroke="#2a9d8f"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -111,7 +111,11 @@ const Inner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #e3f2f1;
+  border-bottom: 2px solid #88cec6; 
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 `;
 
 const Brand = styled.div`
@@ -167,6 +171,7 @@ const NavLinks = styled.ul<{ open: boolean }>`
     box-shadow: none;
     padding: 0;
     align-items: center;
+   
   }
 `;
 
@@ -174,23 +179,32 @@ const NavItem = styled.li``;
 
 const StyledLink = styled(NavLink)<{ open: boolean }>`
   text-decoration: none;
-  color: #ffffffff;
-  padding: 6px 8px;
+  color: #2a9d8f;
+  padding: 6px 12px;
   display: inline-block;
+  border: 2px solid #2a9d8f;  
+  border-radius: 8px;      
+  transition: all 0.3s ease;  
 
   &[aria-current="page"] {
     font-weight: 700;
-    color: #819ad4ff;
+    background-color: #2a9d8f;
+    color: #ffffff;
   }
+
   &:hover {
-    color: #819ad4ff;
+    background-color: #2a9d8f; 
+    color: white;
+    transform: scale(1.05);
   }
 
   &.logout {
-    color: #bd3f3fff;
+    color: #bd3f3f;
+    border-color: #bd3f3f;
     margin-left: ${(p) => (p.open ? "" : "5rem")};
   }
 `;
+
 
 const StyledAction = styled.button<{ open: boolean }>`
   text-decoration: none;
