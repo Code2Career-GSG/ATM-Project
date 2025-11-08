@@ -44,18 +44,16 @@
   color: #333;
 }
 
-.star-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #aaa;
-  transition: color 0.2s;
+.star-btn svg {
+  fill: none;
+  stroke: #000;
+  transition: all 0.2s ease;
 }
 
-.star-btn.active {
-  color: #f4c542;
+.star-btn.active svg {
+  fill: #2a9d8f;
+  stroke: #2a9d8f;
 }
 
-.star-btn:hover {
-  color: #f4c542;
-}
+
+
