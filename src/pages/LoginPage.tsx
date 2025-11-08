@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -8,6 +6,7 @@ import { useAuth } from "../hooks/useAuth";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../store/store";
 import "./LoginPage.css";
+import { useEffect } from "react";
 
 interface User {
   id: string;
@@ -17,7 +16,14 @@ interface User {
   birthday: string;
 }
 
-export const LoginPage = () =>  {
+
+export const LoginPage = () => {
+  useEffect(() => {
+  document.body.classList.add("login-page");
+      return () => {
+    document.body.classList.remove("login-page");
+    };
+  }, []);
  
   //State 
   
