@@ -1,0 +1,61 @@
+.watchlist-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.watchlist-container h2 {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.watchlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.currency-card {
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.currency-card:hover {
+  transform: scale(1.03);
+}
+
+.currency-info h3 {
+  margin: 0;
+  color: #2a9d8f;
+}
+
+.currency-info p {
+  margin: 4px 0 0 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.2s;
+}
+
+.star-btn.active {
+  color: #f4c542;
+}
+
+.star-btn:hover {
+  color: #f4c542;
+}
