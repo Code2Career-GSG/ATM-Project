@@ -1,4 +1,5 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+const storedData = JSON.parse(localStorage.getItem("userData") || "{}");
 
 export interface Transaction {
 id: number;
@@ -21,40 +22,38 @@ transactions: Transaction[];
 }
 
 const userDataSlice = createSlice({
-name: "userData",
-initialState: {
-id: null as number | null,
-firstName: "",
-lastName: "",
-username: "",
-image: "",
-balance: 0,
-birthday: "",
-transactions: [] as Transaction[],
-},
-reducers: {
-setUserData: (state, action: { payload: UserData }) => {
-state.id = action.payload.id;
-state.firstName = action.payload.firstName;
-state.lastName = action.payload.lastName;
-state.username = action.payload.username;
-state.image = action.payload.image;
-state.balance = action.payload.balance;
-state.birthday = action.payload.birthday;
-state.transactions = action.payload.transactions || [];
-},
-changeBalance: (state, action: { payload: number }) => {
-state.balance = action.payload;
-},
-pushTransaction: (state, action: { payload: Transaction }) => {
-state.transactions.push(action.payload);
-},
-clearUserData: (state) => {
-state.balance = 0;
-state.transactions = [];
-},
-},
+  name: "userData",
+  initialState: {
+    id: storedData.id || null,
+    firstName: storedData.firstName || "",
+    lastName: storedData.lastName || "",
+    username: storedData.username || "",
+    image: storedData.image || "",
+    balance: storedData.balance || 0,
+    birthday: storedData.birthday || "",
+    transactions: storedData.transactions || [],
+  },
+  reducers: {
+    setUserData: (state, action) => {
+      Object.assign(state, action.payload);
+      localStorage.setItem("userData", JSON.stringify(state));
+    },
+    changeBalance: (state, action: { payload: number }) => {
+      state.balance = action.payload;
+      localStorage.setItem("userData", JSON.stringify(state));
+    },
+    pushTransaction: (state, action: { payload: Transaction }) => {
+      state.transactions.push(action.payload);
+      localStorage.setItem("userData", JSON.stringify(state));
+    },
+    clearUserData: (state) => {
+      state.balance = 0;
+      state.transactions = [];
+      localStorage.setItem("userData", JSON.stringify(state));
+    },
+  },
 });
+
 
 const loginSlice = createSlice({
 name: "login",
@@ -67,22 +66,25 @@ state.logged = action.payload;
 });
 
 const currencySlice = createSlice({
-name: "currencies",
-initialState: {
-rates: { USD: 3.7, EUR: 4.1, JOD: 5.2 },
-favList: [] as string[],
-},
-reducers: {
-addFavCurrency: (state, action: { payload: string }) => {
-if (!state.favList.includes(action.payload)) {
-state.favList.push(action.payload);
-}
-},
-removeFavCurrency: (state, action: { payload: string }) => {
-state.favList = state.favList.filter((item) => item !== action.payload);
-},
-},
+  name: "currencies",
+  initialState: {
+    rates: { USD: 3.7, EUR: 4.1, JOD: 5.2 },
+    favList: JSON.parse(localStorage.getItem("favList") || "[]") as string[],
+  },
+  reducers: {
+    addFavCurrency: (state, action: { payload: string }) => {
+      if (!state.favList.includes(action.payload)) {
+        state.favList.push(action.payload);
+      }
+      localStorage.setItem("favList", JSON.stringify(state.favList));
+    },
+    removeFavCurrency: (state, action: { payload: string }) => {
+      state.favList = state.favList.filter((item) => item !== action.payload);
+      localStorage.setItem("favList", JSON.stringify(state.favList));
+    },
+  },
 });
+
 
 const birthdayPopupSlice = createSlice({
 name: "birthdayPopup",
