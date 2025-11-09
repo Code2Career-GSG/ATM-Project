@@ -52,7 +52,7 @@ function App() {
           transition: "all 0.3s ease",
         }}
       >
-        {mode === "light" ? "🌙 Dark" : "☀️ Light"}
+        {mode === "light" ? "🌙" : "☀️"}
       </button>
 
     <UserDataSync />
