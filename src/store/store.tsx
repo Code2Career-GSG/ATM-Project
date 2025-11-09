@@ -96,15 +96,19 @@ state.show = action.payload;
 },
 });
 
+const savedMode = localStorage.getItem("mode") || "light";
+
 const appSettingsSlice = createSlice({
-name: "appSettings",
-initialState: { mode: "light" },
-reducers: {
-changeMode: (state) => {
-state.mode = state.mode === "light" ? "dark" : "light";
-},
-},
+  name: "appSettings",
+  initialState: { mode: savedMode },
+  reducers: {
+    changeMode: (state) => {
+      state.mode = state.mode === "light" ? "dark" : "light";
+      localStorage.setItem("mode", state.mode);
+    },
+  },
 });
+
 
 const store = configureStore({
 reducer: {

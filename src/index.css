@@ -139,3 +139,14 @@ button:focus-visible {
 .deposit-form button:hover {
   background-color: #21867a;
 }
+.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
