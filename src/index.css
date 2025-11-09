@@ -88,11 +88,11 @@ button:focus-visible {
 }
 
 
-.light-mode {
+/* .light-mode {
   background-color: #ffffff;
   color: #000000;
   transition: all 0.3s ease;
-}
+} */
 
 .dark-mode {
   background-color: #121212;
