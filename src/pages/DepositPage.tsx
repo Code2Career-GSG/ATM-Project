@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeBalance, pushTransaction } from "../store/store";
 import type { RootState } from "../store/store";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../DepositPage.css";
 
 export const DepositPage = () => {
@@ -17,7 +19,10 @@ export const DepositPage = () => {
     const numAmount = Number(amount);
 
     if (numAmount <= 0) {
-      alert("Enter a valid amount!");
+      toast.error("Enter a valid amount!", {
+      position: "top-center",
+      autoClose: 3000,
+    });
       return;
     }
 
@@ -34,7 +39,10 @@ export const DepositPage = () => {
 
     dispatch(pushTransaction(newTransaction));
 
-    alert("Deposit successful!");
+   toast.success("Withdrawal successful!", {
+     position: "top-center", 
+     autoClose: 3000,       
+   });
     setAmount("");
   };
 

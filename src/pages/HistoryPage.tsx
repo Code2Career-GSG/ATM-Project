@@ -1,6 +1,9 @@
 import React, { useMemo, useState } from "react";
 import styled from "styled-components";
 import { useUser } from "../hooks/useUser";
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+
 
 export const HistoryPage: React.FC = () => {
   const { user, setUser } = useUser();
@@ -20,10 +23,27 @@ export const HistoryPage: React.FC = () => {
   );
 
   const handleClear = () => {
-    if (!confirm("Are you sure you want to clear all transaction history? This action cannot be undone.")) return;
-    setUser({ ...user, transactions: [] });
-    setPage(1);
-  };
+  confirmAlert({
+    title: 'Confirm to clear',
+    message: 'Are you sure you want to clear all transaction history? This action cannot be undone.',
+    buttons: [
+      {
+        label: 'Yes',
+        onClick: () => {
+          setUser({ ...user, transactions: [] });
+          setPage(1);
+        }
+      },
+      {
+        label: 'No',
+        onClick: () => {
+       
+        }
+      }
+    ],
+  
+  });
+};
   return (
     <Wrap>
       <Header>
