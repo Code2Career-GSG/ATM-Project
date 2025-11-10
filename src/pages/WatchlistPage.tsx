@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../store/store";
 import { addFavCurrency, removeFavCurrency } from "../store/store";
 import "../WatchlistPage.css";
-import { Star } from "lucide-react";
+//import { Star } from "lucide-react";
 export const WatchlistPage = () => {
   const dispatch = useDispatch();
 
