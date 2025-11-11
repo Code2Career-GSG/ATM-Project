@@ -69,8 +69,13 @@ const users = await response.json();
       );
 
       if (user) {
+        
+
       
-  dispatch(setUserData(user));    
+ dispatch(setUserData({
+  firstName: user.first_name, 
+ balance: Number(user.balance),  
+})); 
   setLogin(true);     
       
         toast.success(
@@ -83,6 +88,8 @@ const users = await response.json();
         setTimeout(() => {
           navigate("/dashboard");
         }, 700);
+
+        
       } else {
        
         
